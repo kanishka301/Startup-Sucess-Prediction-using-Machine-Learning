@@ -37,7 +37,18 @@ class DataTransformation:
             test_df = pd.read_csv(test_path)
 
             target_column = "status"
-            input_features = [col for col in train_df.columns if col != target_column]
+            input_features = [
+                            "closed_at_month",
+                            "closed_at_year",
+                            "is_ecommerce",
+                            "age_last_milestone_year",
+                            "founded_at_month",
+                            "age_first_milestone_year",
+                            "is_CA",
+                            "age_last_funding_year",
+                            "is_MA",
+                            "tier_relationships"
+                        ]
 
             preprocessor = self.get_data_transformer_object(input_features)
 

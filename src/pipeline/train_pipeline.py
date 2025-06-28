@@ -16,3 +16,5 @@ if __name__ == "__main__":
     model_accuracy = trainer.initiate_model_trainer(train_arr, test_arr)
 
 print(f"Model training completed. Test Accuracy: {model_accuracy}")
+
+

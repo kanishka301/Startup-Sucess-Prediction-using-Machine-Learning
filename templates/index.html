@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Startup Success Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #280443;
+            padding: 20px;
+        }
+        .form-container {
+            background: rgb(244, 231, 249);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px #24082b1a;
+        }
+        h2 {
+            text-align: center;
+            color: #340548;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #320441;
+            color: rgb(206, 177, 211);
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: rgb(6, 68, 6);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Startup Success Predictor</h2>
+
+        <form action="/predict" method="post">
+
+            <label>Closed Month</label>
+            <input type="number" name="closed_at_month" min="0" max="12" required>
+
+            <label>Closed Year</label>
+            <input type="number" name="closed_at_year" min="0" max="2013" required>
+            <small>Enter 0 if the startup hasn't closed yet</small>
+
+            <label>Is E-commerce?</label>
+            <select name="is_ecommerce">
+                <option value="1">Yes</option>
+                <option value="0" selected>No</option>
+            </select>
+
+            <label>Age at Last Milestone (Years)</label>
+            <input type="number" name="age_last_milestone_year" step="0.01" required>
+
+            <label>Founded Month</label>
+            <input type="number" name="founded_at_month" min="1" max="12" required>
+
+            <label>Age at First Milestone (Years)</label>
+            <input type="number" name="age_first_milestone_year" step="0.01" required>
+
+            <label>Is Based in California (CA)?</label>
+            <select name="is_CA">
+                <option value="1">Yes</option>
+                <option value="0" selected>No</option>
+            </select>
+
+            <label>Age at Last Funding (Years)</label>
+            <input type="number" name="age_last_funding_year" step="0.01" required>
+
+            <label>Is Based in Massachusetts (MA)?</label>
+            <select name="is_MA">
+                <option value="1">Yes</option>
+                <option value="0" selected>No</option>
+            </select>
+
+            <label>Tier Relationships</label>
+            <input type="number" name="tier_relationships" min="1" max="4" required>
+
+            <button type="submit">Predict Success</button>
+        </form>
+
+        {% if results is defined %}
+            <div class="result">
+                <strong>Prediction:</strong> {{ results }} (1 = Success, 0 = Failed)
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
