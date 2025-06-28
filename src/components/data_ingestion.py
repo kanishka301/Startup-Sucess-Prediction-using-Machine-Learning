@@ -23,7 +23,7 @@ class DataIngestion:
         logging.info("Starting data ingestion for startup dataset...")
 
         try:
-            df = pd.read_csv('notebook/data/startup_cleaned.csv')  # <-- change as needed
+            df = pd.read_csv('notebook/data/cleaned_startup_data.csv') 
             logging.info("Dataset loaded successfully.")
 
             os.makedirs(os.path.dirname(self.config.train_data_path), exist_ok=True)

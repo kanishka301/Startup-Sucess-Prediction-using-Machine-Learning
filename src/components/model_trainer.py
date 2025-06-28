@@ -37,7 +37,7 @@ class ModelTrainer:
                 "Logistic Regression": LogisticRegression(),
                 "Decision Tree": DecisionTreeClassifier(),
                 "Random Forest": RandomForestClassifier(),
-                "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric='logloss'),
+                "XGBoost": XGBClassifier(),
                 "CatBoost": CatBoostClassifier(verbose=0),
                 "AdaBoost": AdaBoostClassifier(),
                 "Gradient Boosting": GradientBoostingClassifier()

@@ -29,19 +29,7 @@ def load_object(file_path):
 
 
 def evaluate_models(X_train, y_train, X_test, y_test, models: dict, param: dict = None, is_binary=True):
-    """
-    Evaluate classification models and return their test accuracy as report.
-    Only performs GridSearchCV for models specified in `param`.
-
-    Args:
-        X_train, y_train, X_test, y_test: Data splits
-        models: dict of model name -> model instance
-        param: dict of model name -> hyperparameter grid
-        is_binary: if True, compute binary ROC AUC
-
-    Returns:
-        dict: model name -> test accuracy
-    """
+   
     try:
         evaluation_report = {}
 
